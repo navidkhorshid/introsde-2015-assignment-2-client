@@ -1,0 +1,272 @@
+
+Request #1: GET https://dry-ocean-82608.herokuapp.com/ehealth/person Accept: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-16"?>
+<people>
+    <person>
+        <firstname>Chester10725</firstname>
+        <lastname>Chan</lastname>
+        <birthdate>1979-08-30T22:00:00Z</birthdate>
+        <healthProfile>
+            <measureType>
+                <measure>weight</measure>
+                <value>83</value>
+            </measureType>
+            <measureType>
+                <measure>height</measure>
+                <value>175</value>
+            </measureType>
+        </healthProfile>
+    </person>
+    <person>
+        <firstname>Chuck</firstname>
+        <lastname>Norris</lastname>
+        <birthdate>1978-09-01T22:00:00Z</birthdate>
+        <healthProfile>
+            <measureType>
+                <measure>weight</measure>
+                <value>75</value>
+            </measureType>
+            <measureType>
+                <measure>height</measure>
+                <value>180</value>
+            </measureType>
+        </healthProfile>
+    </person>
+    <person>
+        <firstname>Pappo</firstname>
+        <lastname>Pippo</lastname>
+        <birthdate>1978-09-01T22:00:00Z</birthdate>
+        <healthProfile>
+            <measureType>
+                <measure>weight</measure>
+                <value>100</value>
+            </measureType>
+            <measureType>
+                <measure>height</measure>
+                <value>190</value>
+            </measureType>
+        </healthProfile>
+    </person>
+    <person>
+        <firstname>test</firstname>
+        <lastname>Palleto</lastname>
+        <birthdate>1979-12-11T23:00:00Z</birthdate>
+        <healthProfile>
+            <measureType>
+                <measure>weight</measure>
+                <value>79</value>
+            </measureType>
+        </healthProfile>
+    </person>
+</people>
+
+
+Request #2: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/1 Accept: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-16"?>
+<person>
+    <firstname>Chester10725</firstname>
+    <lastname>Chan</lastname>
+    <birthdate>1979-08-30T22:00:00Z</birthdate>
+    <healthProfile>
+        <measureType>
+            <measure>weight</measure>
+            <value>83</value>
+        </measureType>
+        <measureType>
+            <measure>height</measure>
+            <value>175</value>
+        </measureType>
+    </healthProfile>
+</person>
+
+
+Request #3: PUT https://dry-ocean-82608.herokuapp.com/ehealth/person/1 Content-type: application/xml
+=> Result: OK
+=> HTTP Status: 201
+
+Request #4: POST https://dry-ocean-82608.herokuapp.com/ehealth/person Accept: application/xml Content-type: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-16"?>
+<person>
+    <firstname>6::Chuck</firstname>
+    <lastname>Norris</lastname>
+    <birthdate>1944-12-31T22:00:00Z</birthdate>
+    <healthProfile>
+        <measureType>
+            <measure>weight</measure>
+            <value>78.9</value>
+        </measureType>
+        <measureType>
+            <measure>height</measure>
+            <value>172</value>
+        </measureType>
+    </healthProfile>
+</person>
+
+
+Request #5: DELETE https://dry-ocean-82608.herokuapp.com/ehealth/person/6
+=> Result: OK
+=> HTTP Status: 201
+
+Request #2: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/6 Accept: application/xml
+=> Result: ERROR
+=> HTTP Status: 404
+<?xml version="1.0" encoding="UTF-16"?>
+<person>
+    <healthProfile/>
+</person>
+
+
+Request #9: GET https://dry-ocean-82608.herokuapp.com/ehealth/measureTypes Accept: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-16"?>
+<measureTypes>
+    <measureType>weight</measureType>
+    <measureType>height</measureType>
+    <measureType>steps</measureType>
+    <measureType>blood pressure</measureType>
+    <measureType>heart rate</measureType>
+    <measureType>bmi</measureType>
+</measureTypes>
+
+
+Request #6: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/1/weight Accept: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-16"?>
+<measureHistory>
+    <measure>
+        <mid>12</mid>
+        <value>90</value>
+        <created>2011-12-08T22:00:00Z</created>
+    </measure>
+</measureHistory>
+
+
+Request #6: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/4/weight Accept: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-16"?>
+<measureHistory>
+    <measure>
+        <mid>5</mid>
+        <value>76</value>
+        <created>2012-06-24T09:12:00Z</created>
+    </measure>
+</measureHistory>
+
+
+Request #7: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/1/weight/12 Accept: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-16"?>
+<measure>
+    <mid>12</mid>
+    <value>90</value>
+    <created>2011-12-08T22:00:00Z</created>
+</measure>
+
+
+Request #6: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/1/weight Accept: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-16"?>
+<measureHistory>
+    <measure>
+        <mid>12</mid>
+        <value>90</value>
+        <created>2011-12-08T22:00:00Z</created>
+    </measure>
+</measureHistory>
+
+
+Request #6: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/1/weight Accept: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-16"?>
+<measureHistory>
+    <measure>
+        <mid>12</mid>
+        <value>90</value>
+        <created>2011-12-08T22:00:00Z</created>
+    </measure>
+    <measure>
+        <mid>15</mid>
+        <value>72</value>
+        <created>2011-12-08T22:00:00Z</created>
+    </measure>
+</measureHistory>
+
+
+Request #8: POST https://dry-ocean-82608.herokuapp.com/ehealth/person/1/weight Accept: application/xml Content-type: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-16"?>
+<measure>
+    <mid>15</mid>
+    <value>72</value>
+    <created>2011-12-08T22:00:00Z</created>
+</measure>
+
+
+Request #7: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/1/weight/15 Accept: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-16"?>
+<measure>
+    <mid>15</mid>
+    <value>90</value>
+    <created>2011-12-08T22:00:00Z</created>
+</measure>
+
+
+Request #10: PUT https://dry-ocean-82608.herokuapp.com/ehealth/person/1/weight/15 Content-type: application/xml
+=> Result: OK
+=> HTTP Status: 201
+
+Request #11: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/1/weight Accept: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-16"?>
+<measureHistory>
+    <measure>
+        <mid>12</mid>
+        <value>90</value>
+        <created>2011-12-08T22:00:00Z</created>
+    </measure>
+    <measure>
+        <mid>15</mid>
+        <value>90</value>
+        <created>2011-12-08T22:00:00Z</created>
+    </measure>
+</measureHistory>
+
+
+Request #12: GET https://dry-ocean-82608.herokuapp.com/ehealth/person Accept: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-16"?>
+<people>
+    <person>
+        <firstname>Chester23132</firstname>
+        <lastname>Chan</lastname>
+        <birthdate>1979-08-30T22:00:00Z</birthdate>
+        <healthProfile>
+            <measureType>
+                <measure>weight</measure>
+                <value>83</value>
+            </measureType>
+            <measureType>
+                <measure>height</measure>
+                <value>175</value>
+            </measureType>
+        </healthProfile>
+    </person>
+</people>
+

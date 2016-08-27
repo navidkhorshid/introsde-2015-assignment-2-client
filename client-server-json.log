@@ -1,0 +1,209 @@
+
+Request #1: GET https://dry-ocean-82608.herokuapp.com/ehealth/person Accept: application/json
+=> Result: OK
+=> HTTP Status: 200
+{"person": [
+  {
+    "firstname": "Jackie",
+    "birthdate": "1979-08-31",
+    "lastname": "Chan",
+    "measureType": [
+      {
+        "measure": "weight",
+        "value": "83"
+      },
+      {
+        "measure": "height",
+        "value": "175"
+      }
+    ]
+  },
+  {
+    "firstname": "Chuck",
+    "birthdate": "1978-09-01",
+    "lastname": "Norris",
+    "measureType": [
+      {
+        "measure": "weight",
+        "value": "75"
+      },
+      {
+        "measure": "height",
+        "value": "180"
+      }
+    ]
+  },
+  {
+    "firstname": "Pappo",
+    "birthdate": "1978-09-01",
+    "lastname": "Pippo",
+    "measureType": [
+      {
+        "measure": "weight",
+        "value": "100"
+      },
+      {
+        "measure": "height",
+        "value": "190"
+      }
+    ]
+  },
+  {
+    "firstname": "test",
+    "birthdate": "1979-12-11",
+    "lastname": "Palleto",
+    "measureType": [{
+      "measure": "weight",
+      "value": "79"
+    }]
+  }
+]}
+
+Request #2: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/1 Accept: application/json
+=> Result: OK
+=> HTTP Status: 200
+{
+  "firstname": "Jackie",
+  "birthdate": "1979-08-31",
+  "lastname": "Chan",
+  "measureType": [
+    {
+      "measure": "weight",
+      "value": "83"
+    },
+    {
+      "measure": "height",
+      "value": "175"
+    }
+  ]
+}
+
+Request #3: PUT https://dry-ocean-82608.herokuapp.com/ehealth/person/1 Content-type: application/json
+=> Result: OK
+=> HTTP Status: 201
+
+Request #4: POST https://dry-ocean-82608.herokuapp.com/ehealth/person Accept: application/json Content-type: application/json
+=> Result: OK
+=> HTTP Status: 200
+{
+  "firstname": "5::Chuck",
+  "birthdate": -788925600000,
+  "lastname": "Norris",
+  "measureType": [
+    {
+      "measure": "weight",
+      "value": "78.9"
+    },
+    {
+      "measure": "height",
+      "value": "172"
+    }
+  ]
+}
+
+Request #5: DELETE https://dry-ocean-82608.herokuapp.com/ehealth/person/5
+=> Result: OK
+=> HTTP Status: 201
+
+Request #2: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/5 Accept: application/json
+=> Result: ERROR
+=> HTTP Status: 404
+{
+  "firstname": null,
+  "birthdate": null,
+  "lastname": null,
+  "measureType": []
+}
+
+Request #9: GET https://dry-ocean-82608.herokuapp.com/ehealth/measureTypes Accept: application/json
+=> Result: OK
+=> HTTP Status: 200
+{"measureType": [
+  "weight",
+  "height",
+  "steps",
+  "blood pressure",
+  "heart rate",
+  "bmi"
+]}
+
+Request #6: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/4/weight Accept: application/json
+=> Result: OK
+=> HTTP Status: 200
+{"measure": [{
+  "created": "2012-06-24",
+  "mid": 5,
+  "value": "76"
+}]}
+
+Request #7: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/4/weight/5 Accept: application/json
+=> Result: OK
+=> HTTP Status: 200
+{
+  "created": "2012-06-24",
+  "mid": 5,
+  "value": "76"
+}
+
+Request #6: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/1/weight Accept: application/json
+=> Result: ERROR
+=> HTTP Status: 404
+
+Request #6: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/1/weight Accept: application/json
+=> Result: OK
+=> HTTP Status: 200
+{"measure": [{
+  "created": "2011-12-08",
+  "mid": 12,
+  "value": "72"
+}]}
+
+Request #8: POST https://dry-ocean-82608.herokuapp.com/ehealth/person/1/weight Accept: application/json Content-type: application/json
+=> Result: OK
+=> HTTP Status: 200
+{
+  "created": 1323381600000,
+  "mid": 12,
+  "value": "72"
+}
+
+Request #7: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/1/weight/12 Accept: application/json
+=> Result: OK
+=> HTTP Status: 200
+{
+  "created": "2011-12-08",
+  "mid": 12,
+  "value": "90"
+}
+
+Request #10: PUT https://dry-ocean-82608.herokuapp.com/ehealth/person/1/weight/12 Content-type: application/json
+=> Result: OK
+=> HTTP Status: 201
+
+Request #11: GET https://dry-ocean-82608.herokuapp.com/ehealth/person/1/weight Accept: application/json
+=> Result: OK
+=> HTTP Status: 200
+{"measure": [{
+  "created": "2011-12-08",
+  "mid": 12,
+  "value": "90"
+}]}
+
+Request #12: GET https://dry-ocean-82608.herokuapp.com/ehealth/person Accept: application/json
+=> Result: OK
+=> HTTP Status: 200
+{"person": [{
+  "firstname": "Chester10725",
+  "birthdate": "1979-08-30",
+  "lastname": "Chan",
+  "measureType": [
+    {
+      "measure": "weight",
+      "value": "83"
+    },
+    {
+      "measure": "height",
+      "value": "175"
+    }
+  ]
+}]}
